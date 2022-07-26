@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phonie | Identify your telecoms </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <img class="logo" src="./img/logo.png" alt="logo">
+            <!-- <h1 class="project-name">Phon<span>i</span>e</h1> -->
+            <p>Identify your telecoms</p>
+        </div>
+        <form>
+            <!-- phone number input box -->
+            <div class="phone-number-input-box relative flex justify-between items-center">
+                <input type="number" id="phone-no" maxlength="11" required>
+                <label for="phone-no">Enter phone number</label>
+                <!-- error text -->
+                <div class="error hidden">Invalid number, try again</div>
+                <!-- network provider container -->
+                <div class="network-provider-container flex justify-center items-center">
+                    <!-- <img class="network-provider-box" src="./img/Rectangle.png" alt="network-provider-box"> -->
+                    <img class="network-provider-img" src="./img/image.png" alt="network-provider-img">
+                </div>
+            </div>
+            <!-- button -->
+            <button type="submit" class="reveal-provider-btn">REVEAL PROVIDER <img src="./img/eye.png" alt="eye"></button>
+        </form>
+        
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+</html>
