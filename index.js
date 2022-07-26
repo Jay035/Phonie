@@ -53,24 +53,25 @@ const validateForm = (e) => {
             if(networkCarrierPrefixes[carrierprefix].includes(prefix)){
                 if(MTN.includes(prefix)){
                     networkProviderLogo.src = "./img/mtn.png";
+                    label.textContent = "Success! Network provider identified";
                     console.log('MTN', networkProviderLogo)
                 }else if(AIRTEL.includes(prefix)){
                     networkProviderLogo.src = "./img/Airtel.png";
-                    // label.textContent = "Success! Network provider identified";
+                    label.textContent = "Success! Network provider identified";
                     console.log('AIRTEL', networkProviderLogo)
                 }else if(GLO.includes(prefix)){
                     networkProviderLogo.src = "./img/Glo.png";
-                    // label.textContent = "Success! Network provider identified";
+                    label.textContent = "Success! Network provider identified";
                     console.log('GLO', networkProviderLogo)
                 }else if(NINEMOBILE.includes(prefix)){
                     networkProviderLogo.src = "./img/9mobile.png";
-                    // label.textContent = "Success! Network provider identified";
+                    label.textContent = "Success! Network provider identified";
                     console.log('9MOBILE', networkProviderLogo)
                 }
                 else{
                     return 'UNKNOWN NETWORK CARRIER';
                 }
-                label.textContent = "Success! Network provider identified";
+                
                 inputField.style.outline = "2px solid green";
                 networkProviderContainer.style.border = "3px dashed green";
 
