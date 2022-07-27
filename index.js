@@ -5,7 +5,7 @@ const networkProviderLogo = document.querySelector('.network-provider-container 
       phoneNumber = document.getElementById('phone-no'),
       errorText = document.querySelector('.error');
 
-let regex = /^\d{10}$/;
+// let regex = /^\d{10}$/;
 let prefix;
 
 // regEx 
@@ -36,14 +36,14 @@ const validateForm = (e) => {
     
     NINEMOBILE = ["0809", "0817", "0818", "0908", "0909"];
 
-    // if(phoneNumber.match(regex)){
-    //     console.log('successful')
-    //     // label.textContent = "Success! Network provider identified";
-    // }
     let telNo = phoneNumber.value;
     if(!validatePhoneNumber(telNo)){
-        errorText.classList.remove('hidden');
-        inputField.style.outline = "2px solid rgb(241, 30, 30)"
+        // errorText.classList.remove('hidden');
+        label.style.color = "rgb(241, 30, 30)";
+        label.textContent = "Invalid number, try again";
+        networkProviderLogo.src = "./img/image.png";
+        inputField.style.outline = "2px solid rgb(241, 30, 30)";
+        networkProviderContainer.style.border = "3px dashed #9DB7F8";
     }
     else if(validatePhoneNumber(telNo)){
         errorText.classList.add('hidden');
@@ -53,28 +53,24 @@ const validateForm = (e) => {
             if(networkCarrierPrefixes[carrierprefix].includes(prefix)){
                 if(MTN.includes(prefix)){
                     networkProviderLogo.src = "./img/mtn.png";
-                    label.textContent = "Success! Network provider identified";
-                    console.log('MTN', networkProviderLogo)
+                    label.textContent = "Success! Your network provider is MTN";
                 }else if(AIRTEL.includes(prefix)){
                     networkProviderLogo.src = "./img/Airtel.png";
-                    label.textContent = "Success! Network provider identified";
-                    console.log('AIRTEL', networkProviderLogo)
+                    label.textContent = "Success! Your network provider is AIRTEL";
                 }else if(GLO.includes(prefix)){
                     networkProviderLogo.src = "./img/Glo.png";
-                    label.textContent = "Success! Network provider identified";
-                    console.log('GLO', networkProviderLogo)
+                    label.textContent = "Success! Your network provider is GLO";
                 }else if(NINEMOBILE.includes(prefix)){
                     networkProviderLogo.src = "./img/9mobile.png";
-                    label.textContent = "Success! Network provider identified";
-                    console.log('9MOBILE', networkProviderLogo)
+                    label.textContent = "Success! Your network provider is 9MOBILE";
                 }
                 else{
                     return 'UNKNOWN NETWORK CARRIER';
                 }
-                
+                label.style.color = "green";
+                label.classList.add('-translate-y');
                 inputField.style.outline = "2px solid green";
                 networkProviderContainer.style.border = "3px dashed green";
-
             }
             // else{
             //     console.log('oops', label)
@@ -83,14 +79,13 @@ const validateForm = (e) => {
             //     label.style.textAlign = "left";
             // }
         }
-        
     }
     else{
         console.log('oops', label)
         label.textContent = "Oops! Couldn't find your network provider. Please make sure you put in a valid number"
         label.style.color = "rgb(241, 30, 30)";
-        label.style.textAlign = "center";
-        inputField.style.outline = "2px solid rgb(241, 30, 30)"
+        // label.style.textAlign = "center";
+        inputField.style.outline = "2px solid rgb(241, 30, 30)";
     }
 
     e.preventDefault();
